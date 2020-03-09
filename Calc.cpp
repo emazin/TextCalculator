@@ -9,7 +9,22 @@ public:
 
     double calculate(char operation)
     {
-        return op1 + op2;
+        // Perform the specific operation here:
+        double result = 0;
+        if (operation == '+')
+            result = op1 + op2;
+        else if (operation == '-')
+            result = op1 - op2;
+        else if (operation == '*')
+            result = op1 * op2;
+        else if (operation == '/')
+            result = op1 / op2;
+        else if (operation == '^')
+            result = pow(op1, op2);
+        else
+            throw 0;
+
+        return result;
     }
 
 private:
@@ -18,11 +33,14 @@ private:
 
 int main()
 {
-    std::cout << "Enter your operation: ";
-    char operation;
-    double operand1, operand2;
-    std::cin >> operand1 >> operation >> operand2;
-    Operation op(operand1, operand2);
-    std::cout << "Answer: " << operand1 << operation << operand2
-        << " = " << op.calculate(operation) << " \n";
-}
+    while (true)
+    {
+        std::cout << "Enter your operation: ";
+        char operation;
+        double operand1, operand2;
+        std::cin >> operand1 >> operation >> operand2;
+        Operation op(operand1, operand2);
+        std::cout << "Answer: " << operand1 << operation << operand2
+            << " = " << op.calculate(operation) << " \n";
+    }
+ }
